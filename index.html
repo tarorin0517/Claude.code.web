@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="sDoctor — 山積みの書類も、AIがまるごと整理。経理・士業のためのドキュメント自動化サービス。"
+    />
+    <title>sDoctor｜書類の山を、AIが1台に。</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner">
+        <a href="#" class="logo">
+          <span class="logo-mark">s</span>Doctor
+        </a>
+        <nav class="nav">
+          <a href="#problem">課題</a>
+          <a href="#features">特長</a>
+          <a href="#flow">使い方</a>
+          <a href="#pricing">料金</a>
+        </nav>
+        <a href="#cta" class="btn btn-primary btn-sm">無料で試す</a>
+      </div>
+    </header>
+
+    <!-- HERO : pinned 3D scroll scene -->
+    <section class="hero" id="hero">
+      <div class="hero-sticky">
+        <canvas id="scene"></canvas>
+        <div class="hero-overlay">
+          <div class="hero-copy" id="heroCopy">
+            <p class="hero-eyebrow">AI Document Engine</p>
+            <h1 class="hero-title">
+              書類の山は、<br /><span class="grad">AIが1台に</span>飲み込む。
+            </h1>
+            <p class="hero-sub">
+              請求書・領収書・契約書――山積みの紙仕事を、スクロールひとつで
+              スッキリ。経理と士業のための、次世代ドキュメント自動化。
+            </p>
+            <div class="hero-actions">
+              <a href="#cta" class="btn btn-primary">無料で始める</a>
+              <a href="#flow" class="btn btn-ghost">仕組みを見る</a>
+            </div>
+          </div>
+          <div class="hero-reveal" id="heroReveal">
+            <p class="reveal-eyebrow">すべては、この1台へ。</p>
+            <h2 class="reveal-title">あなたのデスクに、<span class="grad">AIアシスタント</span>。</h2>
+          </div>
+        </div>
+        <div class="scroll-hint" id="scrollHint">
+          <span>スクロール</span>
+          <span class="scroll-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section problem" id="problem">
+      <div class="container">
+        <p class="eyebrow">よくある悩み</p>
+        <h2 class="section-title">その書類、まだ手で捌いていますか？</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">📑</div>
+            <h3>山積みの紙</h3>
+            <p>机に積み上がる請求書・領収書。探すだけで一日が終わる。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🧮</div>
+            <h3>手入力の地獄</h3>
+            <p>電卓と転記の繰り返し。ミスも残業も、なくならない。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🗂️</div>
+            <h3>バラバラな保管</h3>
+            <p>バインダー、メール、クラウド。どこに何があるか分からない。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section features" id="features">
+      <div class="container">
+        <p class="eyebrow">sDoctorができること</p>
+        <h2 class="section-title">紙の仕事を、知能に置き換える。</h2>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-num">01</div>
+            <h3>瞬間データ化</h3>
+            <p>撮影・アップロードするだけで、AIが項目を読み取り構造化。入力はもう不要。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-num">02</div>
+            <h3>自動仕訳・分類</h3>
+            <p>勘定科目を学習し、面倒な仕訳とタグ付けを自動で提案します。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-num">03</div>
+            <h3>横断検索</h3>
+            <p>「去年の◯◯社の請求書」も一言で。全書類が一つの脳につながる。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-num">04</div>
+            <h3>安心の証跡</h3>
+            <p>電子帳簿保存法に対応。改ざん防止と監査ログで、保管も万全。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOW -->
+    <section class="section flow" id="flow">
+      <div class="container">
+        <p class="eyebrow">使い方は3ステップ</p>
+        <h2 class="section-title">置く、待つ、終わり。</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-no">1</span>
+            <h3>放り込む</h3>
+            <p>紙でもPDFでもメール添付でも。書類をまとめて投入。</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step">
+            <span class="step-no">2</span>
+            <h3>AIが整理</h3>
+            <p>読み取り・分類・仕訳までAIが自動処理。あなたは確認するだけ。</p>
+          </div>
+          <div class="step-arrow">→</div>
+          <div class="step">
+            <span class="step-no">3</span>
+            <h3>1台で完結</h3>
+            <p>すべてのデータがクラウドに集約。いつでもどこでも引き出せる。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING / CTA -->
+    <section class="section cta" id="cta">
+      <div class="container cta-inner">
+        <h2 class="cta-title">書類の山を、今日で終わりにしよう。</h2>
+        <p class="cta-sub">初期費用0円・14日間の無料トライアル。クレジットカード登録は不要です。</p>
+        <form class="cta-form" id="ctaForm">
+          <input type="email" placeholder="メールアドレス" aria-label="メールアドレス" required />
+          <button type="submit" class="btn btn-primary">無料で始める</button>
+        </form>
+        <p class="cta-note" id="ctaNote"></p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="logo logo-light">
+          <span class="logo-mark">s</span>Doctor
+        </div>
+        <p class="footer-copy">© 2026 sDoctor Inc. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
