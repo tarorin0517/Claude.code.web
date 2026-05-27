@@ -449,6 +449,8 @@ export function initScene(canvas) {
 
   /* ---------- per-frame update ---------- */
   let progress = 0;
+  let narrow = false; // portrait / phone: rearrange to fit the frame
+  let camDist = 1;
   const tmp = new THREE.Vector3();
   const clock = new THREE.Clock();
 
@@ -527,17 +529,31 @@ export function initScene(canvas) {
 
     // holographic dashboards materialize at the end
     const dash = smoothstep(0.7, 0.95, p);
-    dashboards.forEach((d) => {
-      d.material.opacity = dash * 0.95;
-      const bob = Math.sin(t * 0.9 + d.userData.float) * 0.08;
-      d.position.set(d.userData.base.x, d.userData.base.y + bob, d.userData.base.z);
-      d.scale.setScalar(lerp(0.85, 1, dash));
+    dashboards.forEach((d, i) => {
+      if (narrow) {
+        // portrait: side panels don't fit — show only the centred metric panel
+        if (i === 1) {
+          const bob = Math.sin(t * 0.9 + d.userData.float) * 0.06;
+          d.position.set(0, 1.95 + bob, 0.2);
+          d.rotation.y = 0;
+          d.scale.setScalar(lerp(0.7, 0.82, dash));
+          d.material.opacity = dash * 0.95;
+        } else {
+          d.material.opacity = 0;
+        }
+      } else {
+        d.rotation.y = d.userData.rotY;
+        const bob = Math.sin(t * 0.9 + d.userData.float) * 0.08;
+        d.position.set(d.userData.base.x, d.userData.base.y + bob, d.userData.base.z);
+        d.scale.setScalar(lerp(0.85, 1, dash));
+        d.material.opacity = dash * 0.95;
+      }
     });
 
     // camera: cinematic dolly-in with slow orbit, settling on the core
-    const orbit = Math.sin(t * 0.13) * 0.5 * (1 - p * 0.4);
-    const cz = lerp(9, 6.4, easeInOut(p));
-    camera.position.set(orbit + 0.2, lerp(1.4, 0.9, p), cz);
+    const orbit = Math.sin(t * 0.13) * (narrow ? 0.16 : 0.5) * (1 - p * 0.4);
+    const cz = lerp(9, 6.4, easeInOut(p)) * camDist;
+    camera.position.set(orbit + (narrow ? 0 : 0.2), lerp(1.4, 0.9, p), cz);
     camera.lookAt(0, lerp(0.5, 0.3, p), -0.2);
 
     composer.render();
@@ -549,7 +565,11 @@ export function initScene(canvas) {
     renderer.setSize(w, h, false);
     composer.setSize(w, h);
     bloom.setSize(w, h);
-    camera.aspect = w / h;
+    const aspect = w / h;
+    narrow = aspect < 0.85;
+    camDist = narrow ? 0.82 : 1;
+    camera.fov = narrow ? 62 : 46;
+    camera.aspect = aspect;
     camera.updateProjectionMatrix();
   }
   window.addEventListener("resize", resize);
