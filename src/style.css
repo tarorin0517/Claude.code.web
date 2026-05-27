@@ -187,6 +187,7 @@ a {
   margin-left: max(5vw, calc((100vw - 1120px) / 2));
   color: #fff;
   will-change: transform, opacity;
+  text-shadow: 0 2px 22px rgba(4, 8, 20, 0.65);
 }
 .hero-eyebrow {
   font-family: "Inter", sans-serif;
@@ -227,6 +228,7 @@ a {
   width: min(680px, 90vw);
   opacity: 0;
   will-change: opacity, transform;
+  text-shadow: 0 2px 22px rgba(4, 8, 20, 0.7);
 }
 .reveal-eyebrow {
   font-family: "Inter", sans-serif;
@@ -526,5 +528,48 @@ a {
     margin-left: 0;
     padding: 0 6vw;
     text-align: left;
+  }
+}
+
+/* Phones: keep the hero copy in the upper area and give it room so it
+   doesn't crowd the 3D scene or get cut off. */
+@media (max-width: 560px) {
+  .hero-overlay {
+    align-items: flex-start;
+  }
+  .hero-copy {
+    padding: 16vh 7vw 0;
+  }
+  .hero-eyebrow {
+    margin-bottom: 0.7rem;
+    font-size: 0.7rem;
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 8.5vw, 2.5rem);
+    line-height: 1.24;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .hero-actions {
+    gap: 0.7rem;
+  }
+  .hero-actions .btn {
+    padding: 0.75rem 1.3rem;
+    font-size: 0.92rem;
+  }
+  .hero-reveal {
+    bottom: 13%;
+    width: 90vw;
+  }
+  .reveal-eyebrow {
+    font-size: 0.72rem;
+  }
+  .reveal-title {
+    font-size: clamp(1.5rem, 7.5vw, 2.1rem);
+    line-height: 1.3;
   }
 }
